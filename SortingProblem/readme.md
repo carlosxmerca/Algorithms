@@ -145,8 +145,8 @@ quicksort(A, 0, n-1);
 
 ### Resume
 
-| Algorithm   | Best        | Worst       | Average     |
-| ----------- | ----------- | ----------- | ----------- |
-| MergeSort   |             | O(n log2(n))|             |
-| HeapSort    |             | O(n log2(n))|             |
-| QuickSort   | O(n log2(n))| O(n^2)      |             |
+| Algorithm   | Best            | Worst       |  Average         |
+| ----------- | -----------     | ----------- | -----------      |
+| MergeSort   | Omega(n log2(n))| O(n log2(n))| Theta(n log2(n)) |
+| HeapSort    | O(n log2(n))    | O(n log2(n))| O(n log2(n))     |
+| QuickSort   | O(n log2(n))    | O(n^2)      | O(n log2(n))     |
