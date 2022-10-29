@@ -13,7 +13,7 @@ void printArray(int *A, int n);
 
 int main()
 {
-    cout << "Merge sort\n";
+    cout << "Heap sort\n";
     
     int A[] = {8, 6, 5, 7, 3};
     int n = sizeof(A) / sizeof(A[0]);
