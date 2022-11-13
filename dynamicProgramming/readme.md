@@ -41,3 +41,30 @@ Orden de magnitud:`O(n)` :0, se hace uso de la tecnica **memoization**, donde se
 
 **Transferencia de la recursión**
 La recursion se movio del codigo a la estructura de datos.
+
+#### MAX 1D RANGE SUM
+
+```c++
+Response max_1D(int* A, int n) {
+    int M[n+1];
+    M[0] = 0;
+    
+    int s, o, p;
+    s = o = p = 0;
+    
+    for (int i = 1; i <= n; i++) {
+        // Reiniciar la suma y posiciones
+        if (s + A[i-1] < A[i-1])
+            o = p = i-1;
+        
+        s = max(s + A[i-1], A[i-1]);
+        M[i] = max(s, M[i-1]);
+        
+        // Desplazar el limite superior
+        if (s > M[i-1])
+            p = i-1;
+    }
+    
+    return { M[n], o, p };
+}
+```
