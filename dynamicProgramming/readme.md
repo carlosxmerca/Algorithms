@@ -68,3 +68,76 @@ Response max_1D(int* A, int n) {
     return { M[n], o, p };
 }
 ```
+
+#### Knapsack
+```c++
+// O(n*k) 
+// n y k: nunca seran valores demasiado grandes
+int knapsack(int k, int* W, int* V, int n) {
+    int M[n+1][k+1];
+    
+    for (int i = 0; i <= n; i++)
+        M[i][0] = 0;
+    for (int j = 1; j <= k; j++)
+        M[0][j] = 0;
+        
+    // Recorrer matriz
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= k; j++) {
+            // V[i-1] -> Valor de obj actual (ajuste)
+            // W[i-1] -> Valor del peso actual
+            if (j >= W[i-1]) // Verificar si cabe
+                M[i][j] = max( V[i-1] + M[i-1][ j - W[i-1] ], M[i-1][j] );
+            else 
+                M[i][j] = M[i-1][j];
+        }
+    }
+    
+    return M[n][k];
+}
+```
+
+##### Show elements in Knapsack
+```c++
+// O(n*k) 
+void knapsack(int k, int* W, int* V, int n) {
+    int M[n+1][k+1];
+    
+    for (int i = 0; i <= n; i++)
+        M[i][0] = 0;
+    for (int j = 1; j <= k; j++)
+        M[0][j] = 0;
+        
+    // Recorrer matriz
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= k; j++) {
+            // V[i-1] -> Valor de obj actual (ajuste)
+            // W[i-1] -> Valor del peso actual
+            if (j >= W[i-1]) // Verificar si cabe
+                M[i][j] = max( V[i-1] + M[i-1][ j - W[i-1] ], M[i-1][j] );
+            else 
+                M[i][j] = M[i-1][j];
+        }
+    }
+    
+    int res = M[n][k];
+    int w = k; 
+    
+    cout << "Items included: \n";
+    for (int i = n; i > 0 && res > 0; i--) {
+        // if different from above element is included
+        if (res == M[i - 1][w])
+            continue;   
+        else {
+            // This item is included.
+            cout << " [ v: " << V[i - 1] << ", W: " << W[i - 1] << "] \n";
+            // Since this weight is included its
+            // value is deducted
+            res = res - V[i - 1];
+            w = w - W[i - 1];
+        }
+    }
+    
+    cout << "Value: " << M[n][k];
+}
+```
