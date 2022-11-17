@@ -70,5 +70,5 @@ int sum = 11;
 | 11 | 0 | 1 | 1   | 1   | 1   | 1   | 2   | 2   | 2   | 2    | 2   | 3   |
 
 ### Modificaciones del ejercicio
-1. Se desea retirar una cantidad grande de dinero, sin embargo, la cantidad de billetes de cada denominación `1, 5, 10, 20, 100`. Están limitados. El numero de billetes con los que se dispone de cada tipo están denotados por `v, w, x, y, z`. Todos enteros positivos. 
-Se tiene que especificar la cantidad mínima de billetes necesaria para retornar el valor especificado y en caso que no se pueda realizar con los billetes actuales indicarlo mostrando: `“No es posible”`.
+1. Se desea retirar una cantidad grande de dinero, sin embargo, la cantidad de billetes de cada denominación `1, 5, 10, 20, 100`. Están limitados. El numero de billetes con los que se dispone de cada tipo están denotados por `v, w, x, y, z`, todos enteros positivos. 
+Se tiene que indicar la cantidad mínima de billetes necesaria para retornar el valor especificado y en caso que no se pueda realizar con los billetes actuales indicarlo mostrando: `“No es posible”`.
