@@ -1,6 +1,23 @@
 ## Ejercicio #4
+![EJ4](https://i.imgur.com/29Rw1My.jpg)
+
 ### Seudocódigo de Minimum Coin Change
-...
+```
+minBills(B, n, m)
+    let DP[1..n+1] new array
+
+    for i = 1 to n
+        DP[i] = ∞;
+
+    DP[0] = 0;
+
+    for i = 1 to n
+        for j = 0 to m-1
+            if bills[j] <= i
+                DP[i] = Min Between DP[i] And 1 + DP[i - bills[j]]
+    
+    return DP[n]
+```
 
 ### Implementación en c++ de Minimum Coin Change
 ```c++
@@ -10,11 +27,11 @@ int minBills(int* bills, int n, int m) {
     // Memoization
     // Estructura unidimensional de capacidad n+1 donde se alojarán
     // las respuestas de los escenarios ya calculados
-    int dp[n+1] = {0};
+    int dp[n+1];
     
-    // Inicializar todos los valores a "infinito" en este caso representado por INT_MAX
+    // Inicializar todos los valores, menos el caso base a "infinito" en este caso representado por INT_MAX
     // En este escenario el mínimo de monedas para hacer cualquier cantidad de suma es "infinito"
-    for(int i = 0; i <= n; i++)
+    for(int i = 1; i <= n; i++)
         dp[i] = INT_MAX;
   
     // Caso base
@@ -54,6 +71,11 @@ int bills[n_bills] = {1, 2, 3, 4, 5};
 int sum = 11;
 ```
 
+### Respuesta esperada
+```
+Number of bills: 3
+```
+
 ### DP
 | i | 0 | 1 | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9    | 10  | 11  |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
@@ -80,4 +102,4 @@ Un cliente muy importante del banco DP desea retirar una cantidad grande de dine
 
 Se tendrá que encontrar la **diferencia** de billetes que existe entre devolver la cantidad *mínima* necesaria para entregar la suma de dinero al cliente y la cantidad *máxima* de billetes que se pueden usar para entregarle la suma de dinero al cliente. 
 
-En caso que ambas soluciones sean iguales se deberá mostrar un mensaje que diga: `"Ambas soluciones son iguales"`. Como limitante, no se pueden devolver unicamente billetes de la denominación mas baja.
+En caso que ambas soluciones sean iguales se deberá mostrar un mensaje que diga: `"Ambas soluciones son iguales"`. Como limitante, no se pueden devolver unicamente billetes de la denominación más baja.
