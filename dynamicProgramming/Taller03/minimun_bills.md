@@ -70,5 +70,14 @@ int sum = 11;
 | 11 | 0 | 1 | 1   | 1   | 1   | 1   | 2   | 2   | 2   | 2    | 2   | 3   |
 
 ### Modificaciones del ejercicio
-1. Se desea retirar una cantidad grande de dinero, sin embargo, la cantidad de billetes de cada denominación `1, 5, 10, 20, 100`. Están limitados. El numero de billetes con los que se dispone de cada tipo están denotados por `v, w, x, y, z`, todos enteros positivos. 
+#### Modificación #1
+Se desea retirar una cantidad grande de dinero de un ATM, sin embargo, la cantidad de billetes de cada denominación `1, 5, 10, 20, 100`, están limitados (no se dispone de recursos infinitos). El número de billetes con los que se dispone de cada tipo están denotados por `v, w, x, y, z`, todos valores enteros positivos. 
+
 Se tiene que indicar la cantidad mínima de billetes necesaria para retornar el valor especificado y en caso que no se pueda realizar con los billetes actuales indicarlo mostrando: `“No es posible”`.
+
+#### Modificación #2
+Un cliente muy importante del banco DP desea retirar una cantidad grande de dinero, para lo que contamos con billetes de cada denominación: `1, 5, 10, 20, 100`.
+
+Se tendrá que encontrar la **diferencia** de billetes que existe entre devolver la cantidad *mínima* necesaria para entregar la suma de dinero al cliente y la cantidad *máxima* de billetes que se pueden usar para entregarle la suma de dinero al cliente. 
+
+En caso que ambas soluciones sean iguales se deberá mostrar un mensaje que diga: `"Ambas soluciones son iguales"`. Como limitante, no se pueden devolver unicamente billetes de la denominación mas baja.
