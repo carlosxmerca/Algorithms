@@ -1,22 +1,23 @@
-
 # Ejercicio 1
 
 ![Problem01](https://i.imgur.com/H5VIdP8.jpg)
 
 El problema nos solicita encontrar el múltiplo máximo de subsecuencias de números consecutivos dentro de N secuencias principales de cantidades diferentes de números enteros.
 
-> El rango definido para $X_i$ es: $$-99999 \le X_i \le 99999\quad\forall X_i\in\mathbb Z$$
+> El rango definido para $X_i$ es: $\quad-99999 \le X_i \le 99999\quad\forall X_i\in\mathbb Z$
 
 ## Pseudocódigo
 
 > Working on it...
 
 ## Implementación en C++
-La solución que se utilizo para este problema, tiene como base el ```max_1d_range_sum```. A partir de ahí, se le hicieron las modificaciones necesarias para poder retornar el dato solicitado. También se creo una función para generar el archivo que tiene las secuencias de números, que servirá como la entrada de datos a nuestro programa.
+
+La solución que se utilizo para este problema, tiene como base el `max_1d_range_sum`. A partir de ahí, se le hicieron las modificaciones necesarias para poder retornar el dato solicitado. También se creo una función para generar el archivo que tiene las secuencias de números, que servirá como la entrada de datos a nuestro programa.
 
 A continuación, las funciones implementadas en C++
 
 ### Función para generar archivo con números aleatorios
+
 ```c++
 #include <time.h>
 #include <fstream>
@@ -35,15 +36,11 @@ void create_rand_nums(string path, int lim, int subsequences)
     }
 }
 ```
+
 ### Función principal
 
-#### Instancia de ejemplo
-```c++
-    n = 10;
-    int A[n] = {10, -31, 4, 9, 3, 20, 29, 2, -52, 8};
-```
-
 #### Código
+
 ```c++
 int max_1d_range_product(int *A, int n)
 {
@@ -91,11 +88,11 @@ int max_1d_range_product(int *A, int n)
             En dado caso sí sean consecutivos, el nuevo valor de P viene designado por
             el valor máximo entre el valor actual de P multiplicado por el último dígito
             consecutivo conocido y el producto entre los dos últimos consecutivos.
-    
+
             Esto se hace para saber si es mayor el producto entre dos números contiguos
             en el arreglo A después de que no sean consecutivos, o multiplicar el producto
             por el último consecutivo conocido.
-    
+
             Por ejemplo, en la secuencia 4,5,6,9,10 el producto de 4*5*6 es mayor que
             el producto de 9*10, por tanto P = 4*5*6. Si la secuencia fuera 5,6,9,10
             P tendría un valor de P = 9*10, puesto que es mayor que 5*6.
@@ -120,7 +117,33 @@ int max_1d_range_product(int *A, int n)
 }
 ```
 
-#### Arreglo 'M' instancia de ejemplo
-|2|3|
-|--|--|
-|0|0|
+#### Instancias de ejemplo
+
+```c++
+    n = 10;
+    int A[n] = {10, 1, -7, -6, 3, -9, 0, 2, -1, -5};
+    int B[n] = {10, -31, 4, 9, 3, 20, 29, 2, -52, 8};
+```
+
+#### Main
+
+```c++
+int main() {
+
+    cout << "El resultado maximo es: " << max_1d_range_product(A, n) << ".\n";
+    cout << "El resultado maximo es: " << max_1d_range_product(B, n) << ".\n";
+
+    return 0;
+}
+```
+
+> El resultado maximo es: 42.  
+> El resultado maximo es: 720.  
+> — Console Output
+
+## Modificaciones
+
+### Modificacion 1 
+> Working on it...
+### Modificacion 2 
+> Working on it...
