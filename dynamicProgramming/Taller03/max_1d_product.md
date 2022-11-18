@@ -9,11 +9,23 @@ El problema nos solicita encontrar el múltiplo máximo de subsecuencias de núm
 ## Pseudocódigo
 
 ```
-    Aqui va el pseudocodigo escrito pero no he dormido tons no lo
-    pongo a menos que me digan que lo ponga xd 
-
+    Function Max 1D Range Product
+        Input: Array, Size
+        Output: Maximun product in subsequence of consecutive numbers in Array
+        
+        Memoization [Size]
+        Product = 0
+        for 2 to Size+1 do
+            if Numbers are consecutive then
+                Product = MAX (Product * Array [One before] OR Array [One before] * Array [Two before] )
+            else Product = 0
+            End If
+        Memoization [Current position] = MAX ( Product OR Memoization [One before])
+        End For
+        
+    Return Memoization [Size] 
 ```
-![Pseudocode](https://i.imgur.com/7F3vVDS.png)
+![Pseudocode]   Tengo que sacar el latex otra vez porque en el return le puse M[n+1] en el valor de la respuesta..... (https://i.imgur.com/7F3vVDS.png)
 
 ---
 ## Implementación en C++
@@ -48,17 +60,8 @@ void create_rand_nums(string path, int lim, int subsequences)
 #### Código
 
 ```c++
-int max_1d_range_product(int *A, int n)
-{
-    merge_sort(A, 0, n - 1);
-    /*
-    Se ordena primero el arreglo en el que se va a trabajar.
-    Esto para poder determinar los números consecutivos de manera recursiva.
-    En este caso, se utilizó merge_sort porque en el peor de los casos
-    su tiempo de ejecución es O (n logn).
-    */
-
-    int M[n + 1], P = 0;
+int max_1d_range_product(int *A, int n) {
+	int M[n + 1], P = 0;
     /*
     Se inicializa el arreglo M que se va a utilizar, aplicando la Memoization.
 
@@ -151,6 +154,14 @@ int main() {
 ## Modificaciones
 
 ### Modificacion 1 
-> Working on it...
+El casino se ha dado cuenta que varios participantes aciertan muy facil la respuesta en este juego, por lo que deciden modificar las reglas.   
+
+Ahora el limite de numeros en una secuencia dada es de 500 numeros. Ademas, los numeros solo pueden ser maximo de dos digitos. Para agregar una dificultad extra, ahora no es necesario que esten estrictamente consecutivos en el orden en el que aparecen en el arreglo original.
+
+---
+Para solucionarlo utilizando DP, se ordena el arreglo en una copia del original para no modificarlo, y a este arreglo ordenado se le pasa el mismo codigo. De esta forma, nos aseguramos de que si los numeros son consecutivos, esten juntos en el arreglo u se tomen en cuenta cuando el algoritmo se ejecute.
 ### Modificacion 2 
-> Working on it...
+Bob esta sumamente agradecido contigo, gracias a tu solucion ha ganado mucho dinero, pero te contacta una vez mas. Le han ofrecido duplicar la cantidad que tiene si logra N instancias correctamente de nuevo, pero esta vez, tiene que indicar cual es la subsecuencia de numeros consecutivos que genera el resultado mayor.
+
+---
+Para resolverlo, se crea una estructura respuesta, en donde se guardaran cada uno de los valores que generen el mayor producto. Dicha string se modificara para sobreesrcibirse si el producto es mayor al actual. Si no, quedara igual.
