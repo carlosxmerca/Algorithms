@@ -43,7 +43,6 @@ let possible_combinations -> count(money, m, n)
 ## Implementacion en C++
 ```c++
 #include <bits/stdc++.h>
-#include <vector>
 
 using namespace std;
 
