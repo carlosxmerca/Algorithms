@@ -116,7 +116,7 @@ Explanation: {5, 5, 1}
 | 11 | 0 | 1 | 1   | 1   | 1   | 1   | 2   | 2   | 2   | 2    | 2   | 3   |
 
 ### Modificaciones del ejercicio
-#### Modificación #1
+### Modificación #1
 Se desea retirar una cantidad grande de dinero de un ATM, sin embargo, la cantidad de billetes de cada denominación `1, 5, 10, 20, 100`, están limitados (no se dispone de recursos infinitos). El número de billetes con los que se dispone de cada tipo están denotados por `v, w, x, y, z`, todos valores enteros positivos. 
 
 Se tiene que determinar si con los recursos que se dispone se puede o no retornar el valor especificado. En caso que no se pueda realizar con los billetes actuales indicarlo mostrando: `“No es posible”`. Y si es posible mostrar: `“Si es posible”`
@@ -151,7 +151,7 @@ En la última casilla de la matriz `table[n][k]` está almacenada nuestra respue
 En el caso que la respuesta sea igual a `k` podremos afirmar que si podemos entregar una combinación de billetes que satisfaga esta suma de dinero. 
 
 
-#### Modificación #2
+### Modificación #2
 Un cliente muy importante del banco DP desea retirar una cantidad grande de dinero, para lo que contamos con billetes de cada denominación: `1, 5, 10, 20, 100`.
 
 Se tendrá que encontrar el número de formas posibles en las que se le puede devolver la cantidad especificada.
