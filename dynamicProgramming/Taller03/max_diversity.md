@@ -1,6 +1,32 @@
 # Ejercicio #2
+![img](https://i.imgur.com/TtT0xRj.png)
 ## Seudocódigo del ejercicio "maximizing the diversity of a melody"
-...
+
+```
+function  Max 1D Range Diversity
+  Input 
+  N -> Lenght of the song
+  A -> Sequence of notes
+
+  M[n]; 			
+  M[0] = 1;
+  
+  for 1 to n-1
+    if (Previous note is same as current note) {	
+      Current note++;   	    	
+      Current solution = Previous solution + 1;      
+    } 
+    else if (Previous note is greater than current note) { 
+        Current note++;        
+        Current solution = Previous solution;        
+      }
+    else			
+      Current solution = Previous solution + 1; 
+  }															
+
+  return Last Solution; 		
+}
+```
 
 ## Implementación en c++ de "maximizing the diversity of a melody"
 ```c++
