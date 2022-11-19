@@ -75,6 +75,7 @@ Arreglo solicitado:
 | i  | 0 | 1 | 2 | 3 | 4 | 5 |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | A  | 2 | 2 | 2 | 3 | 4 | 5 |
+
 Donde la fila de i son los indices en el recorrido y A es el arreglo ingresado por el usuario.
 
 #### Output
@@ -87,6 +88,7 @@ Arreglo solucionado:
 | A  | 2 | 2 | 2 | 3 | 4 | 5 |
 | M  | 1 | 2 | 2 | 3 | 4 | 5 |
 | A' | 2 | 3 | 3 | 4 | 5 | 6 |
+
 Donde M es el arreglo por `Memoization` y A' es el arreglo final "A" tras sufrir los aumentos.
 
 ## Modificaciones del ejercicio
