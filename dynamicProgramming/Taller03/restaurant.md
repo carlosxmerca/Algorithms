@@ -47,10 +47,6 @@ let possible_combinations -> count(money, m, n)
 
 using namespace std;
 
-// Declaracion global de arreglo combinations el cual se utilizara para la evaluacion de
-// casos ambiguos en knapsack
-vector<string> combinations;
-
 // Estrucuctura diseñada para el manejo de datos del algoritmo, con el fin de optimizar
 // la respuesta del algoritmo al necesitar un valor de comparacion (max_value) y la
 // combinacion de dinero mayor posible para cada orden (max_combi).
@@ -114,9 +110,6 @@ Answer knapsack(int *money, int n, int m)
     // Se delcara la variable string el cual apunta o almacena temporalmente el precio del menu
     // actual para su almacenamiento en response.
     string current;
-    // Se Limpia el arreglo "combinations" por medio de la libreria <vector>,
-    // con el fin de almacenar posibles combinaciones de precios del menu.
-    combinations.clear();
 
     // Bucle for para recorrer el monto de la orden ingresada
     for (int i = 1; i <= n; i++)
@@ -136,12 +129,6 @@ Answer knapsack(int *money, int n, int m)
                     response[i] = response[i - money[j]] + current;
                 // Se compara entre los elementos actuales y sumando uno mas para encontrar el mayor posible.
                 dp[i] = max(dp[i], money[j] + dp[i - money[j]]);
-
-                // Si el indice de la orden actual es igual al monto solicitado se agrega un nuevo precio a la orden.
-                if (i == n)
-                {
-                    combinations.push_back(response[i]);
-                }
             }
         }
     }
