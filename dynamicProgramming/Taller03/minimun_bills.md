@@ -96,7 +96,8 @@ int sum = 11;
 
 ### Respuesta esperada
 ```
-Number of bills: 3
+Outpu: 3
+Explanation: {5, 5, 1}
 ```
 
 ### Vista de los diferentes estados de la memoria 
