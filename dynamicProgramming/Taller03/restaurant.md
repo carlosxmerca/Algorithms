@@ -199,7 +199,14 @@ Ejemplo practico:
 ```
 Input:
     n = 3
-    precios = {}
+    precios = {8, 10, 15}
+    m = 3
+    ordenes = {5, 33, 40}
+
+Output:
+    El pedido de 5SEK es imposible
+    El pedido de 33SEK se puede realizar con los elementos del menu [1, 2, 3,]
+    El pedido de 44SEK es ambiguo
 ```
 
 ## Modificaciones
