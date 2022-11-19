@@ -96,7 +96,7 @@ int sum = 11;
 
 ### Respuesta esperada
 ```
-Outpu: 3
+Output: 3
 Explanation: {5, 5, 1}
 ```
 
