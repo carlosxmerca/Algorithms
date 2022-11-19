@@ -5,7 +5,40 @@
 ![](./Enunciado2.jpeg)
 
 ## Pseudocodigo
-PENDIENTE
+```
+// Encuentra el mayor numero de elementos por orden con el algoritmo knapsack
+
+n -> Numero de elementos en el menu
+money[] -> Arreglo de precios del menu
+m -> Cantidad de ordenes
+orders[] -> Arreglo de precios de ordenes
+
+knapsack(money[], n, m)
+// Se guardaran tanto los datos de knapsack como el arreglo mas optimo
+let dp[n+1] = 0
+let response[n+1] = ""
+let combinations
+
+// Se utilizara un "Dato actual"
+let current
+
+// Bucle para recorrer en el orden de la cantidad de elementos
+for i=1 to n
+    // Bucle para recorrer el orden de la cantidad de pedidos
+    for j=0 to m-1
+        // En caso que el monto actual sea menor que el indice del monto final
+        si money[j] <= i
+            current -> j+1
+        // En caso que el valor de knapsack actual sea menor que una instancia del dinero
+        si dp[i] <= money[j] + dp[i - money[j]]
+            response[i] -> response[i - money[j]] + current
+        dp[i] -> max(dp[i], money[j] + dp[i - money[j]])
+        si i=n
+            combinations[i] -> response[i]
+
+Se define la cantidad de combinaciones posibles que existen
+let possible_combinations -> count(money, m, n)
+```
 
 ## Implementacion en C++
 ```c++
