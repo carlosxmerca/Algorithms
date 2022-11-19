@@ -7,6 +7,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Function prototype declarations
 int max_1d_range_diversity(int* A, int n);
 void fill_array(int* A, int n);
 
