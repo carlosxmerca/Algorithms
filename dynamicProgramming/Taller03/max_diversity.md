@@ -8,22 +8,33 @@ function  Max 1D Range Diversity
   N -> Lenght of the song
   A -> Sequence of notes
 
-  M[n]; 			
+  // M is an array which is the implementation of memoization.
+  M[n];
+  // When only one element is analyzed, we consider it a trivial case because the number of different values for arrays of data, regardless of what that data is, is always 1.
   M[0] = 1;
   
+  // The path goes from 1 to n-1 since we already defined the solution for the trivial case i=0 and both sets "A" & "M" have size n.
   for 1 to n-1
-    if (Previous note is same as current note) {	
-      Current note++;   	    	
+    // Case when we have two consecutive equal integers
+    if (Previous note is same as current note) {
+      // The current integer is increased by one
+      Current note++;
+      // In the memoization array we advance to the next solution which will be equal to the previous solution increased by one, which symbolizes that a new distinct integer was found.
       Current solution = Previous solution + 1;      
     } 
-    else if (Previous note is greater than current note) { 
-        Current note++;        
+    // Case when the integer found is less than the previous one
+    else if (Previous note is greater than current note) {
+    	// The current integer is increased by one
+        Current note++;
+	// In the memoization array we advance to the next solution which will be the same as the previous solution.
         Current solution = Previous solution;        
       }
-    else			
+    // Case when the integer found is greater than the previous one
+    else
+      // In the memoization array we advance to the next solution which will be equal to the previous solution increased by one, which symbolizes that a new distinct integer was found.
       Current solution = Previous solution + 1; 
   }															
-
+  // Being a solution by dp, the response after execution is in the last position of our memoization data structure
   return Last Solution; 		
 }
 ```
