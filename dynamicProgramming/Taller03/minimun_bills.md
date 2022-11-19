@@ -131,7 +131,24 @@ The max sum posible using...
 ```
 
 #### Explicación
-...
+Para resolver este problema se tiene que aplicar el algoritmo *Knapsack* utilizando *DynamicProgramming*.
+
+Al igual que en el problema original utilizaremos un arreglo que contendrá las diferentes denominaciones de billetes y además otro arreglo que contendrá la cantidad de billetes de cada denominación con las que se puede trabajar.
+
+Este algoritmo hará uso de una estructura bi-dimensional o matriz para almacenar los distintos estados (posibilidades) que ya hayan sido calculados, sus dimensiones serán: `table[n + 1][k + 1]` donde `k` es la cantidad de dinero especificada y `n` es la cantidad de distintas denominaciones de billetes.
+
+Se recorre la matriz utilizando un doble bucle que itera: Los índices de las denominaciones de los billetes y la suma o cantidad de dinero.
+
+Para cada casilla o estado de la matriz se deberá de hacer lo siguientes:
+1. Identificar si el billete actual cabe en el espacio disponible
+    - En el caso que el billete quepa identificar cuántos se pueden utilizar respetando el máximo de billetes de este tipo que contiene el arreglo (cantidad de billetes)
+    - Determinar si  es más conveniente llenar la casilla con el valor que aporta utilizar los billetes en cuestión más la cantidad previamente calculada para el espacio faltante o simplemente utilizar el valor de la iteración anterior.
+2. En el caso que el billete no quepa en el espacio disponible se deberá utilizar el valor de la iteración anterior es decir la casilla superior a la actual.
+
+En la última casilla de la matriz `table[n][k]` está almacenada nuestra respuesta en el caso que esta sea diferente a `k` concluimos que la cantidad de dinero solicitada no se puede entregar con los billetes y la cantidad de ellos con las que podemos trabajar.
+
+En el caso que la respuesta sea igual a `k` podremos afirmar que si podemos entregar una combinación de billetes que satisfaga esta suma de dinero. 
+
 
 #### Modificación #2
 Un cliente muy importante del banco DP desea retirar una cantidad grande de dinero, para lo que contamos con billetes de cada denominación: `1, 5, 10, 20, 100`.
@@ -148,19 +165,18 @@ Explanation: There are five solutions:
 ```
 
 #### Explicación
-Para realizar este ejercicio se tiene que aplicar el algoritmo *Coin Change* utilizadno *DynamicProgramming*.
+Para solventar esta problemática se tiene que aplicar el algoritmo *Coin Change* utilizando *DynamicProgramming*.
 
-Al igual que en el problema original utilizaremos un arreglo que contendrá las diferentes denominaciones de monedas.
+Al igual que en el problema original utilizaremos un arreglo que contendrá las diferentes denominaciones de billetes.
 
-Este algoritmo hará uso de una estructura bi-dimensional o matriz para almacenar los distintos estados (posibilidades) que ya hayan sido calculados, sus dimensiones serán: `table[sum + 1][n]` donde *sum* es la cantidad de dinero especificada y *n* es la cantidad de distintas denominaciones de monedas.
+Este algoritmo hará uso de una estructura bi-dimensional o matriz para almacenar los distintos estados (posibilidades) que ya hayan sido calculados, sus dimensiones serán: `table[sum + 1][n]` donde *sum* es la cantidad de dinero especificada y *n* es la cantidad de distintas denominaciones de billetes.
 
 La primera fila de la matriz tendrá todos los estados base es decir: 0.
 
-Se recorrerá la matriz utilizando un doble bucle 
-que itere: la suma o el peso y los índices de las denominaciones de monedas.
+Se recorrerá la matriz utilizando un doble bucle que itera: la suma o el peso y los índices de las denominaciones de billetes .
 
 Para cada casilla o estado de la matriz se deberán de hacer dos cálculos:
 1. La cantidad de soluciones utilizando la moneda actual.
 2. La cantidad de soluciones sin utilizar la moneda actual.
 
-Ambas soluciones se sumarán y almacenarán en la casilla actual. Al final la respuesta estará almacenada en la última casilla de la matriz es decir: `table[sum][n - 1]`. 
+Ambas soluciones se sumarán y almacenarán en la casilla actual. Al final la respuesta estará almacenada en la última casilla de la matriz es decir: `table[sum][n - 1]`.
