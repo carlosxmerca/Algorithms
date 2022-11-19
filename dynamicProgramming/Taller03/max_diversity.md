@@ -22,17 +22,14 @@ int main() {
     cout << "Enter the size of the array (n)" << endl;
     cin >> n;
     int A[n]; // An array as a data structure
-    
-		fill_array(A, n); // Calling the function to fill the array
-    
-		// Print solution
-    cout << "Maximum diversity: " << max_1d_range_diversity(A, n) << endl;
+    fill_array(A, n); // Calling the function to fill the array
+    cout << "Maximum diversity: " << max_1d_range_diversity(A, n) << endl; // Print solution
   }
 }
 
 // Function to fill the array
 void fill_array(int* A, int n){
-	 // Filling the values for x1 <= x2 <= x3 <=...<= xn
+    // Filling the values for x1 <= x2 <= x3 <=...<= xn
     cout << "Fill the values ascendant (Array)" << endl;
     for (int i = 0; i < n; i++) {
       cin >> A[i];
@@ -42,23 +39,28 @@ void fill_array(int* A, int n){
 // Function with the algorithm to calculate the maximum of differents elements with the condition given.
 int max_1d_range_diversity(int* A, int n){
 
-  int M[n]; 										// A solution array that contains the answers
-  M[0] = 1;											// When there is only one data it is a trivial case
+  int M[n]; 			// A solution array that contains the answers, this array is the memoization array.
+  M[0] = 1;			// When there is only one data it is a trivial case because our diversity value will also be 1 with a single data.
   
-  for (int i = 1; i < n; i++) { // 
-    if (A[i - 1] == A[i]) {			// When numbers are the same
-      A[i]++;   	    		  	  // We add one to the current number
+  /*
+We compare the current one with the previous one and since we know that
+for an array of data there will be only one different
+data (the same one), therefore we start the 'for' at 1
+  */
+  for (int i = 1; i < n; i++) {
+    if (A[i - 1] == A[i]) {	// When numbers are the same
+      A[i]++;   	    	// Add one to the current number
       M[i] = M[i - 1] + 1;      // And now we have one more diferent number
     } 
     else if (A[i - 1] > A[i]) { // When the number before is higher than the current number
-        A[i]++;                 // We add one to the current number
+        A[i]++;                 // Add one to the current number
         M[i] = M[i - 1];        // But we copy the previous result
       }
-    else								        // When the number before is neither the same nor higher
+    else			// When the number before is neither the same nor higher
       M[i] = M[i - 1] + 1;      // Only one is added to the result, since they are different and the current number is greater than the previous one, as requested.
   }															
 
-  return M[n-1]; 								// The maximum value is at the end of the M array
+  return M[n-1]; 		// The maximum value is at the end of the M array
 }
 ```
 
