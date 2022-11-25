@@ -234,6 +234,59 @@ int count(int coins[], int n, int sum)
     return table[sum][n - 1];
 }
 ```
+##### Unbounded knapsack full
+```c++
+// Funcion con algoritmo de knapsack, recibe los datos de precio de cada item del menu (money),
+// el monto de la orden (n) y la cantidad de elementos del menu (m).
+Answer knapsack(int *money, int n, int m)
+{
+    // Se declaran e inicializan los arreglos dp y response, los cuales contendran tanto el orden de
+    // knapsack y el arreglo de combinacion ganador en caso de existir.
+    int dp[n + 1] = {0};
+    string response[n + 1] = {""};
+    // Se delcara la variable string el cual apunta o almacena temporalmente el precio del menu
+    // actual para su almacenamiento en response.
+    string current;
+
+    // Bucle for para recorrer el monto de la orden ingresada
+    for (int i = 1; i <= n; i++)
+    {
+        // Bucle for para recorrer los montos del menu
+        for (int j = 0; j < m; j++)
+        {
+            // Comparacion de cada precio del menu con respecto al monto de la orden actual, con el fin
+            // de encontrar si cabe o no dentro de la cuenta actual.
+            if (money[j] <= i)
+            {
+                // Se genera una cadena con los elementos actuales que caben dentro de la orden.
+                current = to_string(j + 1) + ",";
+                // Se compara el elemento actual en el vector de knapsack con un nuevo elemento del menu,
+                // en caso de cumplir se agrega a la lista de items del menu final a mostrar.
+                if (dp[i] <= money[j] + dp[i - money[j]])
+                    response[i] = response[i - money[j]] + current;
+                // Se compara entre los elementos actuales y sumando uno mas para encontrar el mayor posible.
+                dp[i] = max(dp[i], money[j] + dp[i - money[j]]);
+            }
+        }
+    }
+
+    // Se define la cantidad de posibles soluciones de la orden.
+    int possible_combinations = count(money, m, n);
+
+    // Se delcara el objeto res que almacenara la informacion final para su retorno a la Funcion
+    // main(), en este se contendra el valor final alcanzado en knapsack para definir si es posible
+    // o no (res.max_value) y la mayor combinacion posible de elementos del menu (res.max_combi)
+    Answer res;
+    res.max_value = dp[n];
+    res.max_combi = response[n];
+    if (possible_combinations == 1)
+        res.isAmbiguous = false;
+    else
+        res.isAmbiguous = true;
+
+    return res;
+}
+```
 
 ##### LCS - Longest Common Subsecuence
 
