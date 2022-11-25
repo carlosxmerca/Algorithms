@@ -25,7 +25,7 @@ El problema nos solicita encontrar el múltiplo máximo de subsecuencias de núm
         
     Return Memoization [Size] 
 ```
-![Pseudocode]   Tengo que sacar el latex otra vez porque en el return le puse M[n+1] en el valor de la respuesta..... (https://i.imgur.com/7F3vVDS.png)
+![Pseudocode](https://i.imgur.com/03kXIo9.png)
 
 ---
 ## Implementación en C++
@@ -65,7 +65,7 @@ int max_1d_range_product(int *A, int n) {
     /*
     Se inicializa el arreglo M que se va a utilizar, aplicando la Memoization.
 
-    También la variable P, que almacenará temporalment el cálculo
+    También la variable P, que almacenará temporalmente el cálculo
     del mayor producto en el arreglo.
     */
 
